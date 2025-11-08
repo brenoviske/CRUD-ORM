@@ -11,8 +11,8 @@ class ManagerController:
 
     @staticmethod
     def addManager(manager:Manager):
-        user = db.query(User).filter_by(email = manager.email).first()
-        if user:
+        manager = db.query(Manager).filter_by(email = manager.email).first()
+        if manager:
             print('User already exists')
             return
 
