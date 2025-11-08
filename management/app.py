@@ -37,44 +37,44 @@ while isRunning:
             password = str(input("Type the password of the manager:")).lower()
             sector = str(input("Type the name of the manager:")).lower()
 
-            new_manager = Manager(e_mail=e_mail, name=name, password=password, sector=sector)
+            new_manager = Manager(email=e_mail, name=name, password=password, sector=sector)
             ManagerController.addManager(new_manager)
         case 2:
             
-            email = email()
-            ManagerController.removeManager(email)
+            e_mail = email()
+            ManagerController.removeManager(e_mail)
 
         case 3:
-            email = email()
+            e_mail = email()
             password = str(input("Type the password of the manager:")).lower()
             sector = str(input("Type the name of the manager:")).lower()
 
-            ManagerController.editManager(email, password, sector)
+            ManagerController.editManager(e_mail, password, sector)
 
         case 4:
             ManagerController.get_all()
         case 5:
-            email = email()
+            e_mail = email()
             cpf = get_cpf()
             name = str(input("Type the name of the user:")).lower()
             sector = str(input("Type the sector of th user:")).lower()
-            ManagerController.addUser(email, cpf, name, sector)
+            ManagerController.addUser(e_mail, cpf, name, sector)
 
         case 6:
-            email = email()
+            e_mail = email()
             cpf = get_cpf()
-            ManagerController.removeUser(email, cpf)
+            ManagerController.removeUser(e_mail, cpf)
 
         case 7:
-            email = email()
+            e_mail = email()
             cpf = get_cpf()
             name = str(input("Type the new name of the user:")).lower()
             sector = str(input("Type the new sector of the user:")).lower()
-            ManagerController.editUser(email, cpf, name, sector)
+            ManagerController.editUser(e_mail, cpf, name, sector)
 
         case 8:
-            email = email()
-            ManagerController.get_all_users(email)
+            e_mail = email()
+            ManagerController.get_all_users(e_mail)
 
         case 9:
             isRunning = False
