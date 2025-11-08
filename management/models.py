@@ -1,9 +1,6 @@
-from sqlalchemy import Column , String , create_engine, ForeignKey
+from sqlalchemy import Column , String , ForeignKey
 from sqlalchemy.orm import relationship
-from base import Base , engine
-
-
-Base.metadata.create_all(engine)
+from base import Base
 
 # ------- Creating the Manager table in the database ----- #
 class Manager(Base):

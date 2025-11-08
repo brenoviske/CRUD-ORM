@@ -2,7 +2,7 @@
 # This will be the main page for my python CRUD
 #===========================
 from controllers import ManagerController
-from management.models import Manager
+from models import Manager
 
 print("WELCOME TO THE MANAGEMENT SYSTEM")
 
