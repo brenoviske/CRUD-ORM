@@ -12,14 +12,14 @@ class Bank(Base):
     balance = Column(Float,nullable = False)
 
     def to_dict(self):
-        return f'Bank Name: {self.name} Balance: {self.balance}'
+        return f'Bank Name: {self.name} ,  Balance: {self.balance}'
 
 
-    def deposit(self,amount:float):
+    def deposit(self,amount:float) -> None:
         self.balance += amount
 
 
-    def withdraw(self,amount:float):
+    def withdraw(self,amount:float) -> None:
         if amount > self.balance:
             print("You don't have enough money to withdraw")
         self.balance -= amount

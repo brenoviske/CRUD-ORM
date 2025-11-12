@@ -14,7 +14,7 @@ class BankController:
             return
         else:
             try:
-                db.add(bank)
+                db.add(bank) # Adding the bank into the database
                 db.commit()
                 print('Bank added')
                 return
@@ -27,7 +27,7 @@ class BankController:
         existing_bank = db.query(Bank).filter_by(name=name).first()
         if existing_bank:
             try:
-                db.delete(existing_bank)
+                db.delete(existing_bank) # Deleting the bank from the database
                 db.commit()
                 print('Bank removed')
             except Exception as e:
