@@ -1,35 +1,29 @@
-from sqlalchemy import Column, String, Float , create_engine,Integer
-from sqlalchemy.orm import declarative_base , sessionmaker
+from sqlalchemy import Column, String, Float
+from base import Base
 
 
-Base = declarative_base()
 
 class Bank(Base):
     
     __tablename__ = "banks"
 
-    accNumber = Column(Integer,primary_key=True , nullable = False)
+
+    name = Column(String(200) , primary_key=True , null = False )
     balance = Column(Float,nullable = False)
 
-    def __repr__(self):
-        return f"<User(accNumber = {self.accNumber}, balance = {self.balance})>"
-    
-    def getBalance(self) -> float:
-        return self.balance
-    
-    def deposit(self, deposit:float) -> None:
-        self.balance += deposit
-
-    def withdraw( self, withdraw:float) -> None:
-        if ( withdraw > self.balance):
-            print("Insuficient funds")
-        else:
-            self.balance -= withdraw
+    def to_dict(self):
+        return f'Bank Name: {self.name} Balance: {self.balance}'
 
 
-engine = create_engine("mysql+pymysql://root:Ivimorcega1@localhost:3306/banking")
+    def deposit(self,amount:float):
+        self.balance += amount
 
-Session = sessionmaker(bind = engine)
-session = Session()
-# Creating all the tables inside my sqlworkbench
-Base.metadata.create_all(engine)
+
+    def withdraw(self,amount:float):
+        if amount > self.balance:
+            print("You don't have enough money to withdraw")
+        self.balance -= amount
+        return
+
+
+
